@@ -1,0 +1,12 @@
+{
+   "name": "Picture Link",
+   "authors": [
+      {
+         "name": "eternal",
+         "id": "263689920210534400"
+      }
+   ],
+   "description": "Allows you to click people's profile pictures and banners in their user modal to open them in your browser.",
+   "version": "1.0.0",
+   "id": "eternal.picture-link"
+}
