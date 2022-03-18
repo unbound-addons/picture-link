@@ -48,16 +48,27 @@ export default class extends Plugin {
 
    async patchBanners(): Promise<void> {
       const Banner = getByDisplayName('UserBanner', { default: false });
-      const Banners = getByProps('getUserBannerURL');
+      const [Banners, Members] = getByProps(
+         ['getUserBannerURL'],
+         ['getMember'],
+         { bulk: true }
+      );
+
       if (this.promises.cancelled) return;
 
       const { openContextMenu, closeContextMenu } = contextMenu;
 
       Patcher.after(Banner, 'default', (_, args, res) => {
+         const [options] = args;
+         const isGuild = options.guildId;
+
          const handler = findInReactTree(res.props.children, p => p?.onClick);
-         const image = Banners.getUserBannerURL({
-            ...args[0].user,
-            canAnimate: true
+         const getter = isGuild ? 'getGuildMemberBannerURL' : 'getUserBannerURL';
+         const image = Banners[getter]({
+            ...options.user,
+            ...(isGuild && Members.getMember(isGuild, options.user.id) || {}),
+            canAnimate: true,
+            guildId: isGuild
          })?.replace(/(?:\?size=\d{3,4})?$/, '?size=4096')?.replace('.webp', '.png');
 
          if (!handler?.children && image) {
