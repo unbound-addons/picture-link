@@ -1,5 +1,5 @@
 import { getLazy, getByProps, getByDisplayName } from '@webpack';
-import { contextMenu, React } from '@webpack/common';
+import { ContextMenu, React } from '@webpack/common';
 import { findInReactTree } from '@utilities';
 import Plugin from '@structures/plugin';
 import { clipboard } from 'electron';
@@ -22,7 +22,7 @@ export default class extends Plugin {
       if (this.promises.cancelled) return;
 
       const classes = getByProps('discriminator', 'header');
-      const { openContextMenu, closeContextMenu } = contextMenu;
+      const { openContextMenu, closeContextMenu } = ContextMenu;
 
       Patcher.after(Header, 'default', (_, args, res) => {
          const avatar = findInReactTree(res, m => m?.props?.className == classes.avatar);
@@ -56,7 +56,7 @@ export default class extends Plugin {
 
       if (this.promises.cancelled) return;
 
-      const { openContextMenu, closeContextMenu } = contextMenu;
+      const { openContextMenu, closeContextMenu } = ContextMenu;
 
       Patcher.after(Banner, 'default', (_, args, res) => {
          const [options] = args;
