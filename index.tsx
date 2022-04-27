@@ -122,7 +122,7 @@ export default class extends Plugin {
                   <Menu.MenuItem
                      label='Open Image'
                      id='open-image'
-                     action={() => this.openImage(image)}
+                     action={() => this.openImage(image, true)}
                   />
                   <Menu.MenuItem
                      label='Copy Banner URL'
