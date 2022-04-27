@@ -1,0 +1,25 @@
+{
+   "name": "picture-link",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/unbound-addons/picture-link.git"
+   },
+   "keywords": [],
+   "author": "eternal <eternal.git@gmail.com> (https://github.com/localip)",
+   "license": "Unlicensed",
+   "bugs": {
+      "url": "https://github.com/unbound-addons/picture-link/issues"
+   },
+   "homepage": "https://github.com/unbound-addons/picture-link#readme",
+   "devDependencies": {
+      "@types/node": "^17.0.29",
+      "@types/react": "^18.0.8",
+      "unbound-types": "github:unbound-mod/types"
+   }
+}

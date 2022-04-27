@@ -1,0 +1,12 @@
+{
+   "compilerOptions": {
+      "target": "esnext",
+      "jsx": "react",
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "types": [
+         "./node_modules/unbound-types",
+         "node"
+      ]
+   }
+}
